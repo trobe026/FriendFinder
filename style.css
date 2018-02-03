@@ -1,3 +1,15 @@
+body {
+  background: linear-gradient(to right, #77C9D4, #57BC90);
+}
+
+.btn-primary {
+  background-color: #57BC90;
+}
+
+.heading {
+  color: #eee;
+}
+
 .jumbotron {
-  background-color: red;
+  background-color: rgba(1,82,72,0.6);
 }
