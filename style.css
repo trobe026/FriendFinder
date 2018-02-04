@@ -1,5 +1,6 @@
 body {
   background: linear-gradient(to right, #77C9D4, #57BC90);
+
 }
 
 .btn-primary {
@@ -12,4 +13,12 @@ body {
 
 .jumbotron {
   background-color: rgba(1,82,72,0.6);
+}
+
+.questions {
+  width: 150px;
+}
+
+footer {
+  padding: 20px 0;
 }
