@@ -24,17 +24,17 @@
       <h3>About You</h3>
       <h4>Name (Required)</h4>
       <div class="form-group">
-        <input class="form-control">
+        <input class="form-control" id="name">
       </div>
       <h3>Photo Link: (Required)</h3>
       <div class="form-group">
-        <input class="form-control">
+        <input class="form-control" id='photo'>
       </div>
      <hr>
      <h3>Question 1</h3>
      <h4>Test Question 1</h4>
      <div class="form-group questions">
-       <select class="selectpicker" data-live-search="true" title="Choose one:">
+       <select class="selectpicker" data-live-search="true" title="Choose one:" id='q1'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
@@ -45,7 +45,7 @@
      <h3>Question 2</h3>
      <h4>Test Question 2</h4>
      <div class="form-group questions">
-       <select class="selectpicker" data-live-search="true" title="Choose one:">
+       <select class="selectpicker" data-live-search="true" title="Choose one:" id='q2'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
@@ -56,7 +56,7 @@
      <h3>Question 3</h3>
      <h4>Test Question 3</h4>
      <div class="form-group questions">
-       <select class="selectpicker" data-live-search="true" title="Choose one:">
+       <select class="selectpicker" data-live-search="true" title="Choose one:" id='q3'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
@@ -67,7 +67,7 @@
      <h3>Question 4</h3>
      <h4>Test Question 4</h4>
      <div class="form-group questions">
-       <select class="selectpicker" data-live-search="true" title="Choose one:">
+       <select class="selectpicker" data-live-search="true" title="Choose one:" id='q4'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
@@ -78,7 +78,7 @@
      <h3>Question 5</h3>
      <h4>Test Question 5</h4>
      <div class="form-group questions">
-       <select class="selectpicker" data-live-search="true" title="Choose one:">
+       <select class="selectpicker" data-live-search="true" title="Choose one:" id='q5'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
@@ -89,7 +89,7 @@
      <h3>Question 6</h3>
      <h4>Test Question 6</h4>
      <div class="form-group questions">
-       <select class="selectpicker" data-live-search="true" title="Choose one:">
+       <select class="selectpicker" data-live-search="true" title="Choose one:" id='q6'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
@@ -100,7 +100,7 @@
      <h3>Question 7</h3>
      <h4>Test Question 7</h4>
      <div class="form-group questions">
-       <select class="selectpicker" data-live-search="true" title="Choose one:">
+       <select class="selectpicker" data-live-search="true" title="Choose one:" id='q7'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
@@ -111,7 +111,7 @@
      <h3>Question 8</h3>
      <h4>Test Question 8</h4>
      <div class="form-group questions">
-       <select class="selectpicker" data-live-search="true" title="Choose one:">
+       <select class="selectpicker" data-live-search="true" title="Choose one:" id='q8'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
@@ -122,7 +122,7 @@
      <h3>Question 9</h3>
      <h4>Test Question 9</h4>
      <div class="form-group questions">
-       <select class="selectpicker" data-live-search="true" title="Choose one:">
+       <select class="selectpicker" data-live-search="true" title="Choose one:" id='q9'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
@@ -133,7 +133,7 @@
      <h3>Question 10</h3>
      <h4>Test Question 10</h4>
      <div class="form-group questions">
-       <select class="selectpicker" data-live-search="true" title="Choose one:">
+       <select class="selectpicker" data-live-search="true" title="Choose one:" id='q10'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
@@ -155,26 +155,26 @@
     <script type="text/javascript">
     $(".btn-block").on("click", function(event) {
       event.preventDefault();
-      var newUser = {
-        name: $("#name").val().trim(),
-        email: $("#role").val().trim(),
-        res1: $("#1").val().trim(),
-        res2: $("#2").val().trim(),
-        res3: $("#3").val().trim(),
-        res4: $("#4").val().trim(),
-        res5: $("#5").val().trim(),
-        res6: $("#6").val().trim(),
-        res7: $("#7").val().trim(),
-        res8: $("#8").val().trim(),
-        res9: $("#9").val().trim(),
-        res10: $("#10").val().trim()
-      };
-      $.post("/api/friends", newUser)
-      .then(function(data) {
-        console.log(data);
-      });
-    });
+      console.log("test")
+      // var q1 = parseInt($("#q1").val().trim().charAt(0));
+      var answers = [$("#q1").val().trim().charAt(0),
+      $("#q2").val().trim().charAt(0),
+      $("#q3").val().trim().charAt(0),
+      $("#q4").val().trim().charAt(0),
+      $("#q5").val().trim().charAt(0),
+      $("#q6").val().trim().charAt(0),
+      $("#q7").val().trim().charAt(0),
+      $("#q8").val().trim().charAt(0),
+      $("#q9").val().trim().charAt(0),
+      $("#q10").val().trim().charAt(0)];
 
+      var newUser = {
+        "name":$("#name").val().trim(),
+        "photo":$("#photo").val().trim(),
+        "scores" : answers
+        };
+      $.post("/api/friends", newUser);
+    });
     </script>
   </body>
 </html>

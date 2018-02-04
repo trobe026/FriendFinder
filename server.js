@@ -11,7 +11,7 @@ var PORT = process.env.PORT || 8080;
 app.use('css', express.static(path.join(__dirname + 'css')));
 
 app.use(express.static(__dirname));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // app.use(express.static(path.join(__dirname, 'public')));
 

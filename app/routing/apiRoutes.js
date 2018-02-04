@@ -7,7 +7,10 @@ module.exports = function(app) {
   });
 
   app.post("/api/friends", function(req, res) {
+    console.log(req.body);
+    console.log(req.body.scores[2]);
     friendsList.push(req.body);
+    res.json(true);
   });
 
 }
