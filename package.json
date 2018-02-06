@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/trobe026/FriendFinder#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.3.1",
+    "jsdom": "^11.6.2"
   }
 }
