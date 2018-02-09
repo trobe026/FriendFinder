@@ -8,7 +8,7 @@ var path = require("path");
 var app = express();
 
 var PORT = process.env.PORT || 8080;
-app.use('css', express.static(path.join(__dirname + 'css')));
+// app.use('css', express.static(path.join(__dirname + 'css')));
 
 app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -15,7 +15,7 @@ var friendsList = [{
     ]
 },
 {
-  "name": "Ethel",
+  "name": "Susan",
   "photo": "https://media0.giphy.com/media/jA8TT03Sj2pXO/source.gif",
   "scores": [
     '2',

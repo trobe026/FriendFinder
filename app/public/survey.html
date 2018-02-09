@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="../../style.css">
   </head>
   <body>
-    <!-- Modal html -->
+
+    <!-- Match Modal  -->
         <div id="myModal" class="modal">
         <div class="modal-content">
           <div class="modal-header">
@@ -25,6 +26,20 @@
           </div>
         <div class="userMatch">
         </div>
+        <div class="modal-footer">
+          <button type="button" class="close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fill Req Fields Modal  -->
+        <div id="myModal2" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Whoops!</h2>
+          </div>
+        <h3>Please fill out all fields :)</h3>
         <div class="modal-footer">
           <button type="button" class="close">Close</button>
         </div>
@@ -53,7 +68,7 @@
        <select class="selectpicker" data-live-search="true" title="Choose one:" id='q1'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
-        <option data-tokens="3" selected="selected">3</option>
+        <option data-tokens="3">3</option>
         <option data-tokens="4">4</option>
         <option data-tokens="5 Strongly Agree">5 (Strongly Agree)</option>
       </select>
@@ -140,7 +155,7 @@
      <div class="form-group questions">
        <select class="selectpicker" data-live-search="true" title="Choose one:" id='q9'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
-        <option data-tokens="2" selected="selected">2</option>
+        <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
         <option data-tokens="4">4</option>
         <option data-tokens="5 Strongly Agree">5 (Strongly Agree)</option>
@@ -150,7 +165,7 @@
      <h4>Test Question 10</h4>
      <div class="form-group questions">
        <select class="selectpicker" data-live-search="true" title="Choose one:" id='q10'>
-        <option data-tokens="1 Strongly Disagree" selected="selected">1 (Strongly Disagree)</option>
+        <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
         <option data-tokens="4">4</option>
@@ -173,25 +188,11 @@
 
     $(".btn-block").on("click", function(event) {
       event.preventDefault();
-      var modal = document.getElementById('myModal');
-      // var span = document.getElementsByClassName("close")[0];
-      // span.onclick = function() {
-      //   modal.style.display = "none";
-      // }
-      $(".close").click(function() {
-        modal.style.display = "none";
-      });
 
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-          if (event.target == modal) {
-              modal.style.display = "none";
-          }
-      }
-      modal.style.display = "block";
 
-      // console.log("test")
-      // var q1 = parseInt($("#q1").val().trim().charAt(0));
+
+
+      // parse all fields for user responses and sent ajax post request
       var newUser = {
         "name":$("#name").val().trim(),
         "photo":$("#photo").val().trim(),
@@ -206,39 +207,76 @@
           $("#q8").val().trim().charAt(0),
           $("#q9").val().trim().charAt(0),
           $("#q10").val().trim().charAt(0)
-        ]
-        };
-        // console.log(newUser);
-      $.post("/api/friends", newUser);
-      getMatch();
+        ]};
 
-    });
-    function getMatch() {
-      var currentURL = window.location.origin;
-      $.ajax({ url: currentURL + "/api/match", method: "GET" })
-      .then(function(match) {
-        // checks to see if img url for user's match is valid, if not, displays name only
-        $.ajax({
-          type: 'HEAD',
-          url: match[1],
-            success: function() {
-              $(".userMatch").html(`<h1>${match[0]}</h1><hr><img src=${match[1]}>`);
-            },
-              error: function() {
-              $(".userMatch").html(`<h1>${match[0]}</h1><hr><h2>Sorry, this user does not have a valid photo!</h2>`);
+        var missingFields = 0;
+        for (var i in newUser) {
+          for (var j = 0; j < newUser.scores.length; j++) {
+            if (newUser.scores[j] === "") {
+              missingFields++;
+              } else if (newUser.name === "" || newUser.photo === "") {
+                missingFields++;
+              }
             }
+          }
+
+
+        if (missingFields === 0) {
+          $.post("/api/friends", newUser);
+          // run function to grab user's match and display modal
+          getMatch();
+          var modal = document.getElementById('myModal');
+          modal.style.display = "block";
+
+          // close modal on button click
+          $(".close").click(function() {
+            modal.style.display = "none";
           });
 
-        // $(".modal-content").html(`<h2>Name: ${match[0]}</h2> Photo: <img src=${match[1]}>`);
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+              if (event.target == modal) {
+                  modal.style.display = "none";
+              }
+            }
+        } else {
+          // display modal to fill all req fields
+          var modal2 = document.getElementById('myModal2');
+          modal2.style.display = "block";
 
-        // $(".modal").append(modal);
-        // $("#myModal").html(`<h2>Name: ${match[0]}</h2> Photo: <img src=${match[1]}>`);
+          // close modal on button click
+          $(".close").click(function() {
+            modal2.style.display = "none";
+          });
 
-        console.log(match);
-
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+              if (event.target == modal) {
+                  modal2.style.display = "none";
+              }
+            }
+        }
+// end onclick function
       });
 
-    }
+function getMatch() {
+  var currentURL = window.location.origin;
+  $.ajax({ url: currentURL + "/api/match", method: "GET" })
+  .then(function(match) {
+  // checks to see if img url for user's match is valid, if not, displays name only
+  $.ajax({
+      type: 'HEAD',
+      url: match[1],
+        success: function() {
+          $(".userMatch").html(`<h1>${match[0]}</h1><hr><img src=${match[1]}>`);
+        },
+          error: function() {
+          $(".userMatch").html(`<h1>${match[0]}</h1><hr><h2>Sorry, this user does not have a valid photo!</h2>`);
+        }
+      });
+    console.log(match);
+  });
+}
     </script>
   </body>
 </html>
