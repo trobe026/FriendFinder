@@ -47,8 +47,8 @@ var friendsList = [{
 //   ]
 // },
 {
-  "name": "A Calculator",
-  "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4d/TI-83.png",
+  "name": "A Desk Fan",
+  "photo": "https://static.independent.co.uk/s3fs-public/styles/story_medium/public/thumbnails/image/2017/04/20/10/swan.jpg",
   "scores":[
     '1',
     '1',
