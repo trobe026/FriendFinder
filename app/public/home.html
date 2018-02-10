@@ -5,30 +5,55 @@
     <title>FindAFriend!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway|Source+Sans+Pro" rel="stylesheet">
   </head>
   <body>
     <div class="container">
       <div class="jumbotron">
-        <div class="heading">
           <h1>
             <i class="fas fa-user-plus"></i>
              Friend Finder</h1>
              <hr>
              <h3>Answer a few simple questions.</h3>
              <h3>Find your best friend.</h3>
-        </div>
-           <a href="/survey">
-             <button type="button" class="btn btn-lg btn-primary">
-               <span class="glyphicon glyphicon-list-alt"></span>Take the Quiz
-             </button>
-           </a>
+        <a href="/survey" class='lin'>
+          <button href="" type="button" class="btn btn-lg transition">
+          <span class="glyphicon glyphicon-list-alt"></span>Take the Quiz
+        </button>
+      </a>
       </div>
       <footer>
-        <a href="/api/friends">Friends List API |</a>
-        <a href="https://github.com/trobe026/FriendFinder"> GitHub Repo</a>
+        <div class="links">
+          <a href="/api/friends">Friends List API |</a>
+          <a href="https://github.com/trobe026/FriendFinder"> GitHub Repo</a>
+        </div>
       </footer>
     </div>
+    <script type="text/javascript">
+    // fade out on click of survey link
+    $(document).ready(function() {
+        $("body").css("display", "none");
 
+        $("body").fadeIn(2000);
+
+        $("button.transition").click(function(event){
+          // console.log($(this).parentElement('a'));
+            event.preventDefault();
+            // console.log(this.)
+            linkLocation = $(this).parent().attr('href');
+            console.log(linkLocation);
+            $("body").fadeOut(400, redirectPage);
+        });
+
+        function redirectPage() {
+            window.location = linkLocation;
+        }
+    });
+    </script>
   </body>
 </html>

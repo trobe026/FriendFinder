@@ -1,14 +1,14 @@
 var friendsList = [{
-  "name":"Ahmed",
-  "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Shabaz_Ahmed_Senior.jpg/1200px-Shabaz_Ahmed_Senior.jpg",
+  "name":"A Sloth",
+  "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Cute_Sloth.jpg/640px-Cute_Sloth.jpg",
   "scores":[
       '5',
       '1',
+      '3',
       '4',
-      '4',
-      '5',
       '1',
-      '2',
+      '1',
+      '5',
       '5',
       '4',
       '1'
@@ -23,32 +23,32 @@ var friendsList = [{
     '1',
     '2',
     '3',
-    '1',
+    '5',
     '4',
     '4',
     '5',
-    '1'
+    '5'
   ]
 },
-// {
-//   "name": "Scott",
-//   "photo": "https://ledonfrancois.files.wordpress.com/2009/06/blog451.jpg",
-//   "scores": [
-//     '2',
-//     '3',
-//     '2',
-//     '3',
-//     '2',
-//     '3',
-//     '2',
-//     '3',
-//     '2',
-//     '3'
-//   ]
-// },
+{
+  "name": "Kim",
+  "photo": "https://media2.giphy.com/media/xT9IgmYU3ZVaCjGafm/giphy.gif",
+  "scores": [
+    '2',
+    '3',
+    '2',
+    '3',
+    '2',
+    '3',
+    '2',
+    '3',
+    '2',
+    '3'
+  ]
+},
 {
   "name": "A Desk Fan",
-  "photo": "https://static.independent.co.uk/s3fs-public/styles/story_medium/public/thumbnails/image/2017/04/20/10/swan.jpg",
+  "photo": "https://upload.wikimedia.org/wikipedia/commons/2/25/Kdk_blue_2.jpg",
   "scores":[
     '1',
     '1',

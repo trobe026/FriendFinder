@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway|Source+Sans+Pro" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
@@ -17,7 +18,7 @@
   </head>
   <body>
 
-    <!-- Match Modal  -->
+    <!-- 'Match' Modal  -->
         <div id="myModal" class="modal">
         <div class="modal-content">
           <div class="modal-header">
@@ -32,7 +33,7 @@
       </div>
     </div>
 
-    <!-- Fill Req Fields Modal  -->
+    <!-- 'Missing Req Fields' Modal  -->
         <div id="myModal2" class="modal">
         <div class="modal-content">
           <div class="modal-header">
@@ -81,7 +82,7 @@
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
         <option data-tokens="4">4</option>
-        <option data-tokens="5 Strongly Agree" selected="selected">5 (Strongly Agree)</option>
+        <option data-tokens="5 Strongly Agree" >5 (Strongly Agree)</option>
       </select>
     </div>
      <h3>Question 3:</h3>
@@ -90,7 +91,7 @@
        <select class="selectpicker" data-live-search="true" title="Choose one:" id='q3'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
-        <option data-tokens="3" selected="selected">3</option>
+        <option data-tokens="3" >3</option>
         <option data-tokens="4">4</option>
         <option data-tokens="5 Strongly Agree">5 (Strongly Agree)</option>
       </select>
@@ -99,7 +100,7 @@
      <h4>Dogs are man's best friend.</h4>
      <div class="form-group questions">
        <select class="selectpicker" data-live-search="true" title="Choose one:" id='q4'>
-        <option data-tokens="1 Strongly Disagree" selected="selected">1 (Strongly Disagree)</option>
+        <option data-tokens="1 Strongly Disagree" >1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
         <option data-tokens="4">4</option>
@@ -113,7 +114,7 @@
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
-        <option data-tokens="4" selected="selected">4</option>
+        <option data-tokens="4" >4</option>
         <option data-tokens="5 Strongly Agree">5 (Strongly Agree)</option>
       </select>
     </div>
@@ -125,7 +126,7 @@
         <option data-tokens="2">2</option>
         <option data-tokens="3">3</option>
         <option data-tokens="4">4</option>
-        <option data-tokens="5 Strongly Agree" selected="selected">5 (Strongly Agree)</option>
+        <option data-tokens="5 Strongly Agree" >5 (Strongly Agree)</option>
       </select>
     </div>
      <h3>Question 7:</h3>
@@ -133,7 +134,7 @@
      <div class="form-group questions">
        <select class="selectpicker" data-live-search="true" title="Choose one:" id='q7'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
-        <option data-tokens="2" selected="selected">2</option>
+        <option data-tokens="2" >2</option>
         <option data-tokens="3">3</option>
         <option data-tokens="4">4</option>
         <option data-tokens="5 Strongly Agree">5 (Strongly Agree)</option>
@@ -145,7 +146,7 @@
        <select class="selectpicker" data-live-search="true" title="Choose one:" id='q8'>
         <option data-tokens="1 Strongly Disagree">1 (Strongly Disagree)</option>
         <option data-tokens="2">2</option>
-        <option data-tokens="3" selected="selected">3</option>
+        <option data-tokens="3" >3</option>
         <option data-tokens="4">4</option>
         <option data-tokens="5 Strongly Agree">5 (Strongly Agree)</option>
       </select>
@@ -172,26 +173,23 @@
         <option data-tokens="5 Strongly Agree">5 (Strongly Agree)</option>
       </select>
     </div>
-
-     <a href="/survey">
-       <button type="submit" class="btn btn-lg btn-primary btn-block">
-         <span class="glyphicon glyphicon-envelope"></span> Submit
-       </button>
-     </a>
-     <hr>
      <footer>
-       <a href="/api/friends">Friends List API |</a>
-       <a href="https://github.com/trobe026/FriendFinder"> GitHub Repo</a>
+       <a href="/survey" class="submit">
+         <button type="submit" class="btn btn-lg btn-primary btn-block">
+           <span class="glyphicon glyphicon-envelope"></span> Submit
+         </button>
+       </a>
+       <hr>
+       <div class="links">
+         <a href="/api/friends">Friends List API |</a>
+         <a href="https://github.com/trobe026/FriendFinder"> GitHub Repo</a>
+       </div>
      </footer>
     </div>
     <script type="text/javascript">
 
     $(".btn-block").on("click", function(event) {
       event.preventDefault();
-
-
-
-
       // parse all fields for user responses and sent ajax post request
       var newUser = {
         "name":$("#name").val().trim(),
@@ -209,6 +207,7 @@
           $("#q10").val().trim().charAt(0)
         ]};
 
+// validates that all fields are filled out:
         var missingFields = 0;
         for (var i in newUser) {
           for (var j = 0; j < newUser.scores.length; j++) {
@@ -223,8 +222,9 @@
 
         if (missingFields === 0) {
           $.post("/api/friends", newUser);
-          // run function to grab user's match and display modal
+          // run function to grab user's match
           getMatch();
+          // display match and modal
           var modal = document.getElementById('myModal');
           modal.style.display = "block";
 
@@ -240,18 +240,16 @@
               }
             }
         } else {
-          // display modal to fill all req fields
+
           var modal2 = document.getElementById('myModal2');
           modal2.style.display = "block";
 
-          // close modal on button click
           $(".close").click(function() {
             modal2.style.display = "none";
           });
 
-          // When the user clicks anywhere outside of the modal, close it
           window.onclick = function(event) {
-              if (event.target == modal) {
+              if (event.target == modal2) {
                   modal2.style.display = "none";
               }
             }

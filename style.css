@@ -1,27 +1,53 @@
 body {
   background: linear-gradient(to right, #77C9D4, #57BC90);
-
+  font-family: 'Raleway', sans-serif;
 }
 
-.btn-primary {
-  background-color: #57BC90;
-}
-
-.heading {
-  color: #eee;
-}
+/* jumbotron CSS */
 
 .jumbotron {
-  background-color: rgba(1,82,72,0.6);
+  font-family: 'Montserrat', sans-serif;
+  color: #eee;
+  background-color: rgba(1,82,72,0.4);
+  -webkit-animation: mymove 2s 1;
+  animation: mymove 2s 1;
+  position: relative;
+}
+@-webkit-keyframes mymove {
+  from   {top: -200px;}
+  to  {top: 0px;}
+}
+@keyframes mymove {
+  from   {top: -200px;}
+  to  {top: 0px;}
 }
 
-.questions {
-  width: 150px;
-}
-
-footer {
+/* homepage footer animation */
+.links a {
   padding: 20px 0;
+  -webkit-animation: mymovef 2s;
+  animation: mymovef 2s;
+  position: relative;
+  animation-timing-function: ease-in;
 }
+
+@-webkit-keyframes mymovef {
+  from   {left: -2000px;}
+  to  {left: 0;}
+}
+@keyframes mymovef {
+  from   {left: -2000px;}
+  to  {left: 0;}
+}
+
+/* Survey page footer */
+.btn-block {
+  margin-top:40px;
+}
+
+
+
+/* Modal CSS */
 
 /* The Modal (background) */
 .modal {
@@ -54,7 +80,6 @@ footer {
     text-align: center;
 }
 
-/* Add Animation */
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
@@ -65,7 +90,6 @@ footer {
     to {top:0; opacity:1}
 }
 
-/* The Close Button */
 .close {
     color: white;
     float: right;
@@ -98,4 +122,34 @@ img {
   max-width: 60%;
   max-height: 50%;
   margin: 15px 0;
+}
+
+/* buttons */
+
+.btn:hover {
+  background-color: #77C9D4;
+  color: #333;
+}
+
+.btn-lg {
+  color: #eee;
+  background-color: rgba(1,82,72,0.4);
+}
+
+.glyphicon-list-alt {
+  margin-right: 7px;
+}
+
+
+
+/* Survey Questions CSS */
+
+.bootstrap-select.btn-group .dropdown-menu li a:hover {
+  background-color: #77C9D4;
+  color: #fff;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+  background-color: #77C9D4;
+  color: #fff;
 }
